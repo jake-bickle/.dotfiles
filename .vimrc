@@ -7,7 +7,7 @@ syntax enable
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                    START PLUGIN                     "
+"                     PLUGIN BOX                      "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " let Vundle manage Vundle, required
@@ -33,44 +33,33 @@ Plugin 'vim-scripts/DoxygenToolkit.vim'
 Plugin 'jdkanani/vim-material-theme'
 Plugin 'morhetz/gruvbox'
 
-" Automatically pair '(', '{', '['
+" Automatically pair '(', '{', '[', etc.
 Plugin 'jiangmiao/auto-pairs'
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                    END PLUGIN                       "
+"                     END PLUGIN BOX                  "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""
 call vundle#end()            " required
 filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
 
+" Needed for nerdcommenter
+filetype plugin on
 
-" ---------- SETTINGS ------------- 
+" ---------- GENERAL SETTINGS ------------- 
 " Set tabs to spaces of 4 instead of 8 or CPP style guide
 set expandtab
 set shiftwidth=4
 set tabstop=4
 set scrolloff=5 " Leave 5 lines of buffer when scrolling
 set sidescrolloff=10 " Leave 10 characters of horizontal buffer when scrolling
-set autoread "Auto reload changed files"
-set autoindent "Use indentation of previous line"
-set smartindent "Use intelligent indentation for C"
-"set hlsearch "Highlight matching search results"
-set ignorecase smartcase "Search queries intelligently set case"
-set splitright "Open new splits to the right"
-set splitbelow "Open new splits to the bottom"
-set number "Lines are numbered"
-autocmd filetype cpp set colorcolumn=81 "Greys out the 81st column for CPP files only"
+set autoread " Auto reload changed files
+set autoindent " Use indentation of previous line
+set smartindent " Use intelligent indentation for C
+"set hlsearch " Highlight matching search results
+set ignorecase smartcase " Search queries intelligently set case
+set splitright " Open new splits to the right
+set splitbelow " Open new splits to the bottom
 
 " Open NERDTree automatically
 autocmd vimenter * NERDTree
@@ -80,17 +69,8 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 " Disable comment continuation on paste
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=ok
 
-" Needed for nerdcommenter
-filetype plugin on
-
-" Spell checker
-if version >= 700
-    set spl=en spell
-    set nospell
-endif
-
 " Global variable for YCM to have semantic code completeion for C-Family languages
-" This is nessisary so you don't have to add .ycm_extra_conf.py to every project folder
+" This is nessisary if you don't want to add .ycm_extra_conf.py to every project folder
 let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
 
 " ---------- REBINDING ------------
@@ -101,26 +81,19 @@ inoremap JJ <Esc>
 noremap _ 0
 noremap + $
 
-" TODO c-j moves curser down in insert mode
-"inoremap <c-j> down
 " Scroll DOWN ONE LINE at a time 
 nnoremap m <c-e>
 " Scroll DOWN HALF PAGE at a time 
 nnoremap <c-m> <c-d> 
 " Scroll UP ONE LINE at a time 
 nnoremap , <c-y>
-" Scroll UP ONE PAGE at a time. Doesn't seem to work.
-nnoremap <c-,> <c-u> 
+" Scroll UP ONE PAGE at a time. Doesn't work for some reason.
+"nnoremap <c-,> <c-u> 
 " Use tg to go back a tab instead of gT
 " This is to match up with moving forward a tab with gt
 nnoremap tg gT
-" Scroll screen to curser
-
-" Save on the fly
-
-" Build c++ files and run
+" Build c++ files and run. TODO: Use with makefile instead
 nnoremap <F2> :w <CR> :! g++ -std=gnu++11 "%" 2>&1 \| less -N && ./a.out<CR>
-
 
 " Open .vimrc
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
@@ -130,8 +103,11 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 nnoremap <leader>n :NERDTreeToggle<Enter>
 
 
-" -------- TEXT COLORS ------------- 
+" -------- COSMETIC  ------------- 
 set background=dark
 "colorscheme material-theme
 colorscheme gruvbox
+
+set number " Lines are numbered
+autocmd filetype cpp set colorcolumn=81 "Greys out the 81st column for CPP files only
 
