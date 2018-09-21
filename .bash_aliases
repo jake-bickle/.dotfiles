@@ -1,4 +1,5 @@
 # Custom alias
+alias transfer-file-page="python -m SimpleHTTPServer 8080"
 
 # If user is not root, pass the following commands as sudo
 if [ $UID -ne 0 ]; then
