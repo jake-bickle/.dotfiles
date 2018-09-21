@@ -1,5 +1,6 @@
 # Custom alias
 alias transfer-file-page="python -m SimpleHTTPServer 8080"
+alias startvpn="sudo openvpn ~/gato.ovpn"
 
 # If user is not root, pass the following commands as sudo
 if [ $UID -ne 0 ]; then
