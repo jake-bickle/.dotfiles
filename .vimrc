@@ -94,6 +94,16 @@ nnoremap , <c-y>
 nnoremap tg gT
 " Build c++ files and run. TODO: Use with makefile instead
 nnoremap <F2> :w <CR> :! g++ -std=gnu++11 "%" 2>&1 \| less -N && ./a.out<CR>
+" Save file via ctrl-d, or if it's a new file, save as
+command -nargs=0 -bar Update if &modified 
+                           \|    if empty(bufname('%'))
+                           \|        browse confirm write
+                           \|    else
+                           \|        confirm write
+                           \|    endif
+                           \|endif
+nnoremap <silent> <C-S> :<C-u>Update<CR>
+inoremap <c-s> <c-o>:Update<CR>
 
 " Open .vimrc
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
