@@ -73,6 +73,15 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=ok
 " This is nessisary if you don't want to add .ycm_extra_conf.py to every project folder
 let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
 
+" Syntatic recommended settings
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
 " ---------- REBINDING ------------
 let mapleader='-'
 inoremap jj <Esc>
