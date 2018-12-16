@@ -23,7 +23,7 @@ Plugin 'scrooloose/nerdtree.git'
 Plugin 'scrooloose/nerdcommenter'
 
 " Adds code compeletion
-Plugin 'Valloric/YouCompleteMe'
+Plugin 'scrooloose/syntastic'
 
 " Quickly change the 'surrounding' characters
 Plugin 'tpope/vim-surround'
