@@ -117,6 +117,3 @@ if ! shopt -oq posix; then
 fi
 
 
-# Add path environments here
-PATH=$PATH:~/Documents/ScriptingGrounds
-export PATH
