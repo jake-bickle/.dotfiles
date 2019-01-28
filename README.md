@@ -2,7 +2,7 @@
 My personal config files for various command line utilities.
 
 # Installing
-1. Clone the repo and move all of its files into your home directory.
+1. Clone the repo and move all of its files into your home directory `git clone https://github.com/jake-bickle/.dotfiles.git` then `cp .dotfiles/* ~/`
 1. Install [Vundle](https://github.com/VundleVim/Vundle.vim) to utilize the various vim plugins with `git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim`
 1. Open vim, enter :PluginInstall and wait for all of the plugins to install.
 
