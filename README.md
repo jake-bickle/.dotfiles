@@ -18,3 +18,9 @@ If you're running any MAC OS, it is recommended to install Homebrew, a package r
 * `-ev` opens up .vimrc for quickly creating new keybinds. Save them, then `-sv` to update your vim session with the new keybinds.
 * `-c ` (-c + space) toggles comment on selected line(s).
 * `ctrl + s` to save (for anyone hoping over from other editors out there!)
+
+# tmux Keybinds
+All of the [tmux](https://github.com/tmux/tmux) keybinds are the same EXCEPT
+* `ctrl + a` is the home key. Use this to initiate any key bind for tmux.
+* `-` causes a vertical split
+* `\` causes a horizontal split
