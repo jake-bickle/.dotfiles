@@ -15,5 +15,5 @@ If you're running any MAC OS, it is recommended to install Homebrew, a package r
 * `-n` toggles [nerdtree](https://github.com/scrooloose/nerdtree)
 * `gt` goes forward tabs, while `tg` goes back 
 * `_` to go to beginning of line, `+` to go to end of line
-* `-ev` opens up .vimrc for quickly creating new keybinds. Save them, then `-sv' to update your vim session with the new keybinds.
+* `-ev` opens up .vimrc for quickly creating new keybinds. Save them, then `-sv` to update your vim session with the new keybinds.
 * `ctrl + s` to save (for anyone hoping over from other editors out there!)
