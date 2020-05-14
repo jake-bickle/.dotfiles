@@ -16,18 +16,8 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'git://git.wincent.com/command-t.git'
 Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 
-" Nerdtree provides file hiarchy while in vim
+" Nerdtree provides file hierarchy while in vim
 Plugin 'scrooloose/nerdtree.git'
-
-" Provides powerful commenting
-Plugin 'scrooloose/nerdcommenter'
-
-" Adds code compeletion
-Plugin 'scrooloose/syntastic'
-
-" Quickly change the 'surrounding' characters
-Plugin 'tpope/vim-surround'
-Plugin 'vim-scripts/DoxygenToolkit.vim'
 
 " Colorschemes
 Plugin 'jdkanani/vim-material-theme'
@@ -42,9 +32,6 @@ Plugin 'jiangmiao/auto-pairs'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""
 call vundle#end()            " required
 filetype plugin indent on    " required
-
-" Needed for nerdcommenter
-filetype plugin on
 
 " ---------- GENERAL SETTINGS ------------- 
 " Set tabs to spaces of 4 instead of 8 or CPP style guide
@@ -62,25 +49,9 @@ set splitright " Open new splits to the right
 set splitbelow " Open new splits to the bottom
 
 " Open NERDTree automatically
-autocmd vimenter * NERDTree
+" autocmd vimenter * NERDTree
 " Close vim if NERDTree is only thing open
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
-" Disable comment continuation on paste
-autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=ok
-
-" Global variable for YCM to have semantic code completeion for C-Family languages
-" This is nessisary if you don't want to add .ycm_extra_conf.py to every project folder
-let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
-
-" Syntatic recommended settings
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
 
 " ---------- REBINDING ------------
 let mapleader='-'
@@ -101,8 +72,6 @@ nnoremap , <c-y>
 " Use tg to go back a tab instead of gT
 " This is to match up with moving forward a tab with gt
 nnoremap tg gT
-" Build c++ files and run. TODO: Use with makefile instead
-nnoremap <F2> :w <CR> :! g++ -std=gnu++11 "%" 2>&1 \| less -N && ./a.out<CR>
 " Save file via ctrl-d, or if it's a new file, save as
 command -nargs=0 -bar Update if &modified 
                            \|    if empty(bufname('%'))
