@@ -114,6 +114,9 @@ command -nargs=0 -bar Update if &modified
 nnoremap <silent> <C-S> :<C-u>Update<CR>
 inoremap <c-s> <c-o>:Update<CR>
 
+" Remap marks to M. Otherwise, marks still work as normal.
+nnoremap M m
+
 " Open .vimrc
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 " Source .vimrc ( To apply changes )
